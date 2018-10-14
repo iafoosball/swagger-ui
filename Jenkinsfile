@@ -6,16 +6,20 @@ pipeline {
         COMPOSE_FILE = "docker-compose.yml"
     }
     stages {
-        stage ("Build") {
+        stage ("Prepare Environment") {
             steps {
-            sh "docker-compose build --pull"
-
+                sh "cp /var/lib/iafoosabll/swagger-ui/* ./apis/
             }
         }
+        stage ("Build") {
+                    steps {
+                    sh "docker-compose up --build"
+                    }
+                }
 
         stage ("Deploy") {
             steps {
-            sh "docker-compose up --force-recreate"
+            sh "docker-compose up"
             }
         }
     }

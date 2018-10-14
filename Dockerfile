@@ -20,13 +20,12 @@ ENV BASE_URL ""
 RUN apk add --update nginx
 RUN mkdir -p /run/nginx
 
-RUN mkdir -p /usr/share/nginx/html/
+RUN mkdir -p /usr/share/nginx/html/apis/
 
 COPY nginx.conf /etc/nginx/
 
 # copy swagger files to the `/js` folder
 ADD ./dist/* /usr/share/nginx/html/
 ADD ./docker-run.sh /usr/share/nginx/
-
-COPY users.yml /usr/share/nginx/html/users.yml
+ADD ./apis/* /usr/share/nginx/html/
 CMD ["sh", "/usr/share/nginx/docker-run.sh"]
