@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ("Prepare Environment") {
             steps {
-                sh "cp /var/lib/iafoosabll/swagger-ui/* ./apis/"
+                sh "cp /var/lib/iafoosball/swagger-ui/* ./apis/"
             }
         }
         stage ("Build") {
