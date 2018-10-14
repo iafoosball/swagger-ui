@@ -4,4 +4,4 @@ services:
   container_name: "swagger"
   build: './'
   ports:
-    - 9007:8080
+    - 8009:8080
