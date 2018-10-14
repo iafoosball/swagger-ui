@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ("Prepare Environment") {
             steps {
-                sh "mkdir apis"
+                sh "mkdir apis &"
                 sh "cp /var/lib/iafoosball/swagger-ui/* ./apis/"
             }
         }
