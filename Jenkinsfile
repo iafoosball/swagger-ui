@@ -8,21 +8,20 @@ pipeline {
     stages {
         stage ("Prepare Environment") {
             steps {
-                sh "cp /var/lib/iafoosabll/swagger-ui/* ./apis/
+                sh "cp /var/lib/iafoosabll/swagger-ui/* ./apis/"
             }
         }
         stage ("Build") {
-                    steps {
-                    sh "docker-compose up --build"
-                    }
-                }
-
-        stage ("Deploy") {
             steps {
-            sh "docker-compose up"
+            sh "docker-compose up --build"
             }
         }
-    }
+        stage ("Deploy") {
+            steps {
+                sh "docker-compose up"
+                }
+            }
+        }
     post {
         always {
             sh "docker-compose down -v"
