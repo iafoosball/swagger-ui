@@ -14,7 +14,7 @@ pipeline {
         }
         stage ("Build") {
             steps {
-                sh "docker stop swagger-ui &"
+                sh "docker stop swagger &"
 
                 sh "docker-compose build"
             }
