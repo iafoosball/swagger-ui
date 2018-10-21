@@ -15,7 +15,7 @@ pipeline {
         stage ("Build") {
             steps {
                 sh "docker stop swagger &"
-                sh "sleep 100s"
+                sh "sleep 30s"
                 sh "docker-compose build"
             }
         }
