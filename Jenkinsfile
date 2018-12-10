@@ -9,7 +9,7 @@ pipeline {
         stage ("Prepare Environment") {
             steps {
                 sh "mkdir apis &"
-                sh "cp -rf /var/lib/iafoosball/swagger-ui/* ./apis/ &"
+                sh "cp -rf /var/lib/iafoosball/openAPISpecs/* ./apis/ &"
             }
         }
         stage ("Build") {
